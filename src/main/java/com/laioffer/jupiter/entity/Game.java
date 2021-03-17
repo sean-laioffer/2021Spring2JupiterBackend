@@ -1,10 +1,21 @@
 package com.laioffer.jupiter.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Game {
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("developer")
     private String developer;
+
+    @JsonProperty("release_time")
     private String releaseTime;
+
+    @JsonProperty("website")
     private String website;
+
+    @JsonProperty("price")
     private double price;
 
     public String getName() {
