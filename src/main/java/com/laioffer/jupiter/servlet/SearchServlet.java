@@ -23,8 +23,7 @@ public class SearchServlet extends HttpServlet {
 
         TwitchClient client = new TwitchClient();
         try {
-            response.setContentType("application/json;charset=UTF-8");
-            response.getWriter().print(new ObjectMapper().writeValueAsString(client.searchItems(gameId)));
+            ServletUtil.writeItemMap(response, client.searchItems(gameId));
         } catch (TwitchException e) {
             throw new ServletException(e);
         }
