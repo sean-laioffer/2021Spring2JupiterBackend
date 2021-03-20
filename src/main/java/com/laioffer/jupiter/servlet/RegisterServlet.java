@@ -16,8 +16,7 @@ import java.io.IOException;
 public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Read user data from the request body
-        ObjectMapper mapper = new ObjectMapper();
-        User user = mapper.readValue(request.getReader(), User.class);
+        User user = ServletUtil.readRequestBody(User.class, request);
         if (user == null) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
